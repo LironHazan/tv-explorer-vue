@@ -1,0 +1,16 @@
+<b-container class="content">
+  <b-row>
+    <b-col class="content">
+      <div class="search">
+      <input @keyup.enter="search($event)" placeholder="SEARCH!">
+      </div>
+      <div>
+        <div v-for="show in $store.getters.allShows">
+            <h3 class="show-title">{{show.show.name}}</h3>
+            <div><img :src="show.show.image.medium" alt=""/></div>
+            <div> {{show.show.summary}}></div>
+        </div>
+      </div>
+    </b-col>
+  </b-row>
+</b-container>

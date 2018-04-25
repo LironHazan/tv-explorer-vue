@@ -6,6 +6,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromPromise';
 import axios, { AxiosResponse } from 'axios';
 import './home.scss';
+import {mapGetters} from 'vuex';
+
 
 @Component({
   template: require('./home.html'),
@@ -14,13 +16,15 @@ import './home.scss';
     'b-col': bCol,
     'b-row': bRow
   },
+  computed: {
+    ...mapGetters(['allShows'])
+  },
   methods: {
     search: function (event) {
       const api = `http://api.tvmaze.com/search/shows?q=:${event.target.value}/`;
       Observable.fromPromise(axios.get(api))
         .subscribe(items => {
           this.$store.commit('setShows', items.data);
-          console.log(this.$store.getters.allShows);
         }, err => console.log(err));
     }
   }

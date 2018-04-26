@@ -2,13 +2,11 @@
   <b-row>
     <b-col class="content">
       <div class="search">
-      <input @keyup.enter="search($event)" placeholder="SEARCH!">
+      <input @keyup.enter="search($event)" :placeholder="searchPlaceholder">
       </div>
       <div>
-        <div v-for="show in allShows">
-            <h3 class="show-title">{{show.show.name}}</h3>
-            <div><img :src="show.show.image.medium" alt=""/></div>
-            <div> {{show.show.summary}}></div>
+        <div class="show" v-for="show in allShows">
+          <show :show="show"></show>
         </div>
       </div>
     </b-col>

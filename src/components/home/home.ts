@@ -7,6 +7,7 @@ import 'rxjs/add/observable/fromPromise';
 import axios, { AxiosResponse } from 'axios';
 import './home.scss';
 import {mapGetters} from 'vuex';
+import {ShowComponent} from "./show/show";
 
 
 @Component({
@@ -14,7 +15,13 @@ import {mapGetters} from 'vuex';
   components: {
     'b-container': bContainer,
     'b-col': bCol,
-    'b-row': bRow
+    'b-row': bRow,
+    'show': ShowComponent
+  },
+  data: () => {
+    return {
+      searchPlaceholder: 'SEARCH SHOW!'
+    };
   },
   computed: {
     ...mapGetters(['allShows'])
@@ -33,9 +40,5 @@ export class HomeComponent extends Vue {
 
   constructor () {
     super();
-  }
-
-  mounted () {
-    console.log(this.$store.getters.allShows);
   }
 }

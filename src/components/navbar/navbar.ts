@@ -21,10 +21,14 @@ import axios, { AxiosResponse } from 'axios';
     'b-navbar-toggle': bNavbarToggle,
     'b-navbar-brand': bNavbarBrand,
     'b-navbar-nav': bNavbarNav
-  }
+  },
+  data: () => {
+    return {
+      headerTitle: 'TV Explorer: The Vue Way !'
+    };
+  },
 })
 export class NavbarComponent extends Vue {
-
   object: { default: string } = { default: 'Default object property!' };
   links: Link[] = [
     new Link('Home', '/'),

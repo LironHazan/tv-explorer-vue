@@ -5,7 +5,7 @@ export async function makeHot (id: string, componentLoader: () => Promise<Compon
   if (module.hot) {
     api.install(Vue);
     if (!api.compatible) {
-      throw new Error('vue-hot-reload-api is not compatible with the version of Vue you are using.')
+      throw new Error('vue-hot-reload-api is not compatible with the version of Vue you are using.');
     }
 
     const loadedComponent = await componentLoader();

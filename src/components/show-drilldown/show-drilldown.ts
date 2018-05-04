@@ -5,7 +5,7 @@ import bRow from 'bootstrap-vue/es/components/layout/row';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromPromise';
 import './show-drilldown.scss';
-import {mapGetters} from 'vuex';
+import axios, { AxiosResponse } from 'axios';
 
 
 @Component({
@@ -14,6 +14,14 @@ import {mapGetters} from 'vuex';
     'b-container': bContainer,
     'b-col': bCol,
     'b-row': bRow
+  },
+  data: () => {
+    return { selectedShow: {
+      name: 'init',
+      image:  {medium: null },
+      summary: '<div> init </div>'
+    }
+    };
   }
 })
 export class ShowDrilldownComponent extends Vue {
@@ -23,11 +31,16 @@ export class ShowDrilldownComponent extends Vue {
   }
 
   selectedShow;
+
   mounted () {
-    const id = this.$route.params.id;
+    const id = this.$route.params['id'];
     const shows = this.$store.getters.allShows;
-    this.selectedShow = shows.map(item => item.show)
-      .find(_show => _show.id == id);
-    console.log(this.selectedShow );
+    if (shows.length > 0) {
+      this.selectedShow = shows.map(item => item.show)
+        .find(_show => _show.id == id);
+    } else {
+      this.$router.push('/');
+    }
   }
+
 }

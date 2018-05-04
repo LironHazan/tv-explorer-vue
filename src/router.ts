@@ -19,16 +19,16 @@ if (process.env.ENV === 'development' && module.hot) {
   // first arguments for `module.hot.accept` and `require` methods have to be static strings
   // see https://github.com/webpack/webpack/issues/5668
   makeHot(homeModuleId, homeComponent,
-    module.hot.accept('./components/home', () => reload(homeModuleId, (require('./components/home') as any).HomeComponent)))
+    module.hot.accept('./components/home', () => reload(homeModuleId, (require('./components/home') as any).HomeComponent)));
 
   makeHot(aboutModuleId, aboutComponent,
-    module.hot.accept('./components/about', () => reload(aboutModuleId, (require('./components/about') as any).AboutComponent)))
+    module.hot.accept('./components/about', () => reload(aboutModuleId, (require('./components/about') as any).AboutComponent)));
 
   makeHot(listModuleId, listComponent,
-    module.hot.accept('./components/list', () => reload(listModuleId, (require('./components/list') as any).ListComponent)))
+    module.hot.accept('./components/list', () => reload(listModuleId, (require('./components/list') as any).ListComponent)));
 
   makeHot(showDrilldownModuleId, showDrilldownComponent,
-    module.hot.accept('./components/list', () => reload(showDrilldownModuleId, (require('./components/show-drilldown') as any).ShowDrilldownComponent)))
+    module.hot.accept('./components/list', () => reload(showDrilldownModuleId, (require('./components/show-drilldown') as any).ShowDrilldownComponent)));
 }
 
 Vue.use(VueRouter);

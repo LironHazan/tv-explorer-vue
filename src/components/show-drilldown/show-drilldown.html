@@ -4,7 +4,7 @@
       <div>
         <h3 class="show-title">{{selectedShow.name}}</h3>
         <div><img :src="selectedShow.image.medium" alt=""/></div>
-        <div> {{selectedShow.summary}}></div>
+        <div v-html="selectedShow.summary"></div>
       </div>
     </b-col>
   </b-row>

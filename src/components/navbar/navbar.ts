@@ -7,10 +7,7 @@ import bNavbarBrand from 'bootstrap-vue/es/components/navbar/navbar-brand';
 import bNavbarNav from 'bootstrap-vue/es/components/navbar/navbar-nav';
 import { Link } from './link';
 import { Logger } from '../../util/log';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromPromise';
-import axios, { AxiosResponse } from 'axios';
-
 
 @Component({
   template: require('./navbar.html'),
@@ -31,9 +28,8 @@ import axios, { AxiosResponse } from 'axios';
 export class NavbarComponent extends Vue {
   object: { default: string } = { default: 'Default object property!' };
   links: Link[] = [
-    new Link('Home', '/'),
+    new Link('Search', '/'),
     new Link('About', '/about'),
-    new Link('List', '/list')
   ];
 
   protected logger: Logger;

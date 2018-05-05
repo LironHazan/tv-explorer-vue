@@ -6,7 +6,6 @@ import bNavbarToggle from 'bootstrap-vue/es/components/navbar/navbar-toggle';
 import bNavbarBrand from 'bootstrap-vue/es/components/navbar/navbar-brand';
 import bNavbarNav from 'bootstrap-vue/es/components/navbar/navbar-nav';
 import { Link } from './link';
-import { Logger } from '../../util/log';
 import 'rxjs/add/observable/fromPromise';
 
 @Component({
@@ -32,17 +31,13 @@ export class NavbarComponent extends Vue {
     new Link('About', '/about'),
   ];
 
-  protected logger: Logger;
 
   @Watch('$route.path')
   pathChanged () {
-    this.logger.info('Changed current path to: ' + this.$route.path);
+    console.log('Changed current path to: ' + this.$route.path);
   }
 
   mounted () {
-    if (!this.logger) {
-      this.logger = new Logger();
-    }
-    this.$nextTick(() => this.logger.info(this.object.default));
+    this.$nextTick(() => console.log(this.object.default));
   }
 }

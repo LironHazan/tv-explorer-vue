@@ -5,7 +5,6 @@ import {ShowDrilldownComponent} from './components/show-drilldown/show-drilldown
 
 const homeComponent = () => import('./components/home').then(({ HomeComponent }) => HomeComponent);
 const aboutComponent = () => import('./components/about').then(({ AboutComponent }) => AboutComponent);
-const listComponent = () => import('./components/list').then(({ ListComponent }) => ListComponent);
 const showDrilldownComponent = () => import('./components/show-drilldown').then(({ ShowDrilldownComponent }) => ShowDrilldownComponent);
 // const homeComponent = () => import(/* webpackChunkName: 'home' */'./components/home').then(({ HomeComponent }) => HomeComponent)
 // const aboutComponent = () => import(/* webpackChunkName: 'about' */'./components/about').then(({ AboutComponent }) => AboutComponent)
@@ -23,9 +22,6 @@ if (process.env.ENV === 'development' && module.hot) {
 
   makeHot(aboutModuleId, aboutComponent,
     module.hot.accept('./components/about', () => reload(aboutModuleId, (require('./components/about') as any).AboutComponent)));
-
-  makeHot(listModuleId, listComponent,
-    module.hot.accept('./components/list', () => reload(listModuleId, (require('./components/list') as any).ListComponent)));
 
   makeHot(showDrilldownModuleId, showDrilldownComponent,
     module.hot.accept('./components/list', () => reload(showDrilldownModuleId, (require('./components/show-drilldown') as any).ShowDrilldownComponent)));
@@ -45,10 +41,6 @@ export const createRoutes: () => RouteConfig[] = () => [
   {
     path: '/about',
     component: aboutComponent
-  },
-  {
-    path: '/list',
-    component: listComponent
   }
 ];
 

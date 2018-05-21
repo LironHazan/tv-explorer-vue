@@ -23,9 +23,7 @@ if (process.env.ENV === 'development' && module.hot) {
   makeHot(aboutModuleId, aboutComponent,
     module.hot.accept('./components/about', () => reload(aboutModuleId, (require('./components/about') as any).AboutComponent)));
 
-  makeHot(showDrilldownModuleId, showDrilldownComponent,
-    module.hot.accept('./components/list', () => reload(showDrilldownModuleId, (require('./components/show-drilldown') as any).ShowDrilldownComponent)));
-}
+ }
 
 Vue.use(VueRouter);
 
